@@ -761,7 +761,7 @@ public class TestWagedRebalance extends ZkTestBase {
   public static void main(String[] args)
       throws IOException, IllegalAccessException, InstantiationException, ClassNotFoundException {
     String clusterName = "test";
-    String zkAddr = "localhost:2181";
+    String zkAddr = "localhost:12913";
 
     HelixZkClient.ZkClientConfig clientConfig = new HelixZkClient.ZkClientConfig();
     clientConfig.setZkSerializer(new ZNRecordSerializer());
@@ -795,7 +795,7 @@ public class TestWagedRebalance extends ZkTestBase {
     Map<String, Integer> defaultInstanceCapacityMap = clusterConfig.getDefaultInstanceCapacityMap();
     for (String key : clusterConfig.getInstanceCapacityKeys()) {
       defaultInstanceCapacityMap
-          .put(key, clusterConfig.getDefaultInstanceCapacityMap().getOrDefault(key, 0) * 2);
+          .put(key, clusterConfig.getDefaultInstanceCapacityMap().getOrDefault(key, 0));
     }
     clusterConfig.setDefaultInstanceCapacityMap(defaultInstanceCapacityMap);
 

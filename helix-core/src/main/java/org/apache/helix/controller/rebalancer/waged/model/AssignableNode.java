@@ -115,7 +115,7 @@ public class AssignableNode implements Comparable<AssignableNode> {
     // Update the global state after all single replications' calculation is done.
     for (String capacityKey : totalPartitionCapacity.keySet()) {
       updateRemainingCapacity(capacityKey, totalPartitionCapacity.get(capacityKey));
-      updateRemainingTopStateCapacity(capacityKey, totalTopStatePartitionCapacity.get(capacityKey));
+      updateRemainingTopStateCapacity(capacityKey, totalTopStatePartitionCapacity.getOrDefault(capacityKey, 0));
     }
   }
 
